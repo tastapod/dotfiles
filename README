@@ -1,4 +1,4 @@
 # Clone this into your home directory, then symlink like this:
 # (You'll  need to move your dotfiles out the way first).
 
-for f in gemrc gitconfig vim vimrc zshrc; ln -s dotfiles/$f .$f; done
+for f in gemrc gitconfig vim vimrc zshrc; do ln -s dotfiles/$f .$f; done
