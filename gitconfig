@@ -1,0 +1,23 @@
+[user]
+	name = Dan North
+	email = dan@dannorth.net
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+[alias]
+	br = branch
+	changes = diff --name-status -r
+	ci = commit
+	co = checkout
+	diffstat = diff --stat -r
+	l = log --abbrev-commit --pretty=oneline --graph --decorate
+  lg = log --max-count=5
+	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+	st = status
+	sm = submodule
+	ds = diff --staged
+[diff]
+	renames = true
+[receive]
+	denyCurrentBranch = warn
