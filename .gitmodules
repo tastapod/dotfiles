@@ -1,0 +1,3 @@
+[submodule "vimfiles"]
+	path = vimfiles
+	url = git://github.com/tastapod/vimfiles.git

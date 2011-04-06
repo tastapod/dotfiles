@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/dnorth/src/repoman/agile-ops/redmine/vendor/plugins/redmine_mandatory_fields/app'
-let g:netrw_dirhist_2='/home/dnorth/src/repoman/agile-ops/redmine/vendor/plugins/redmine_mandatory_fields/app/views'
-let g:netrw_dirhist_3='/home/dnorth/src/repoman/agile-ops/redmine/vendor/plugins/redmine_mandatory_fields/app/views/mandatory_fields'

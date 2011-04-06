@@ -59,3 +59,6 @@ set +o ignoreeof
 
 # RVM - ruby version manager
 [[ -s "/usr/local/lib/rvm" ]] && source "/usr/local/lib/rvm"
+
+# Python
+export PYTHONSTARTUP="$HOME/.pythonstartup"
