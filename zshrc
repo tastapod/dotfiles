@@ -1,13 +1,30 @@
+# Git prompt highlighting from http://bit.ly/ej4ZS8
+autoload -Uz vcs_info
+autoload -Uz colors
+colors
+ 
+zstyle ':vcs_info:*' stagedstr '%F{green}●'
+zstyle ':vcs_info:*' unstagedstr '%F{red}●'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
+zstyle ':vcs_info:*' enable git svn
+precmd () {
+    if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
+        zstyle ':vcs_info:*' formats ' %F{yellow}[%F{green}%s:%b%c%u%F{yellow}]'
+    } else {
+        zstyle ':vcs_info:*' formats ' %F{yellow}[%F{green}%s:%b%c%u%F{red}●%F{yellow}]'
+    }
+    vcs_info
+}
+ 
+setopt prompt_subst
+readonly PS1='%F{yellow}%m${vcs_info_msg_0_} %F{yellow}%1~%F{yellow} %%%F{white} '
+
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 if [[ -f ~/.gnomerc ]] source ~/.gnomerc
-
-# PS1='%n@%m:%~%# '
-
-PS1='%{]0;%~
-[35m%}%n@%m %{[33m%}%~%{[0m%}
-%# '
+if [[ -f ~/.zsh_local ]] source ~/.zsh_local # Machine-specific stuff
 
 export LESSOPEN='| /usr/bin/lesspipe %s'
 export LESSCLOSE='/usr/bin/lesspipe %s %s'
@@ -47,10 +64,8 @@ alias open=gnome-open
 alias ls='ls --color=auto'
 
 # Keyboard layouts
-alias aaaa='setxkbmap us -option ctrl:nocaps'
+alias aoeu='setxkbmap us -option ctrl:nocaps'
 alias asdf='setxkbmap us dvorak -option ctrl:nocaps'
-alias aoeu='setxkbmap us colemak -option ctrl:nocaps'
-alias arst='setxkbmap us dvorak -option ctrl:nocaps'
 
 bindkey  '\C-[[1;5D' backward-word
 bindkey  '\C-[[1;5C' forward-word
@@ -62,3 +77,4 @@ set +o ignoreeof
 
 # Python
 export PYTHONSTARTUP="$HOME/.pythonstartup"
+[[ -f "$HOME/local/python/env/default/bin/activate" ]] && source "$HOME/local/python/env/default/bin/activate" 2>&-
