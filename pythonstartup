@@ -3,6 +3,8 @@ import readline
 import rlcompleter
 import atexit
 import os
+import sys
+from pprint import pprint
 
 # tab completion
 readline.parse_and_bind('tab: complete')
