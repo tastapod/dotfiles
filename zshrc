@@ -2,7 +2,6 @@
 autoload -Uz vcs_info
 autoload -Uz colors
 colors
- 
 zstyle ':vcs_info:*' stagedstr '%F{green}●'
 zstyle ':vcs_info:*' unstagedstr '%F{red}●'
 zstyle ':vcs_info:*' check-for-changes true
@@ -69,6 +68,7 @@ source /etc/zsh_command_not_found
 # Aliases
 alias open=gnome-open
 alias ls='ls --color=auto'
+export GREP_OPTIONS=--color
 
 # Keyboard layouts
 alias aoeu='setxkbmap us -option ctrl:nocaps'
