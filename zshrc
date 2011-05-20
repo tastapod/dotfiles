@@ -28,6 +28,8 @@ if [[ -f ~/.zsh_local ]] source ~/.zsh_local # Machine-specific stuff
 
 export LESSOPEN='| /usr/bin/lesspipe %s'
 export LESSCLOSE='/usr/bin/lesspipe %s %s'
+export LESS='-R'
+export GREPOPTIONS='--color=auto'
 
 export LC_CTYPE='en_GB.UTF-8'
 
@@ -45,6 +47,11 @@ zstyle :compinstall filename '/home/dan/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# History management
+setopt histignorespace histignoredups
+alias fg=' fg' # fg doesn't make it into the history - hooray!
+alias fgfg=fg  # Weird - I often find myself typing this
 
 PATH="$HOME/bin:$HOME/local/bin:$PATH"
 MANPATH="$HOME/local/share/man:$MANPATH"
@@ -66,6 +73,7 @@ alias ls='ls --color=auto'
 # Keyboard layouts
 alias aoeu='setxkbmap us -option ctrl:nocaps'
 alias asdf='setxkbmap us dvorak -option ctrl:nocaps'
+alias aaaa='setxkbmap gb -option ctrl:nocaps'
 
 bindkey  '\C-[[1;5D' backward-word
 bindkey  '\C-[[1;5C' forward-word
@@ -77,4 +85,5 @@ set +o ignoreeof
 
 # Python
 export PYTHONSTARTUP="$HOME/.pythonstartup"
+fignore+=(.pyc .pyo)
 [[ -f "$HOME/local/python/env/default/bin/activate" ]] && source "$HOME/local/python/env/default/bin/activate" 2>&-
