@@ -52,13 +52,12 @@ setopt histignorespace histignoredups
 alias fg=' fg' # fg doesn't make it into the history - hooray!
 alias fgfg=fg  # Weird - I often find myself typing this
 
-PATH="$HOME/bin:$HOME/local/bin:$PATH"
-MANPATH="$HOME/local/share/man:$MANPATH"
+path=( $HOME/bin $HOME/local/bin $HOME/Applications/**/bin(/) "$path[@]" )
+manpath=( $HOME/local/share/man "$manpath[@]" )
 
 # Sources live in src/{repo}/{owner}/{project}
 # e.g. src/github/tastapod/dotfiles
-CDPATH="."
-for d ( ~/src/*/*(/) ) { CDPATH="$CDPATH:$d" }
+cdpath=( . $HOME/src/*/*(/) )
 
 source /etc/zsh_command_not_found
 
