@@ -17,7 +17,7 @@ precmd () {
 }
  
 setopt prompt_subst
-readonly PS1='%F{yellow}%m${vcs_info_msg_0_} %F{yellow}%1~%F{yellow} %%%F{white} '
+PS1='%F{yellow}%m${vcs_info_msg_0_} %F{yellow}%1~%F{yellow} %%%F{white} '
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -25,7 +25,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 if [[ -f ~/.gnomerc ]] source ~/.gnomerc
 if [[ -f ~/.zsh_local ]] source ~/.zsh_local # Machine-specific stuff
 
-export LESSOPEN='| /usr/bin/lesspipe %s'
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESSCLOSE='/usr/bin/lesspipe %s %s'
 export LESS='-R'
 export GREPOPTIONS='--color=auto'
@@ -36,7 +36,7 @@ export LC_CTYPE='en_GB.UTF-8'
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd extendedglob nomatch notify
+setopt extendedglob nomatch notify
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -57,7 +57,8 @@ manpath=( $HOME/local/share/man "$manpath[@]" )
 
 # Sources live in src/{repo}/{owner}/{project}
 # e.g. src/github/tastapod/dotfiles
-cdpath=( . $HOME/src/*/*(/) )
+local gitdirs=( $HOME/src/**/.git(/) )
+cdpath=( . "${(u)gitdirs[@]%/*/.git}" )
 
 source /etc/zsh_command_not_found
 
@@ -81,8 +82,13 @@ set +o ignoreeof
 
 # RVM - ruby version manager
 [[ -s "/usr/local/lib/rvm" ]] && source "/usr/local/lib/rvm"
+alias markdown=rdiscount
 
 # Python
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 fignore+=(.pyc .pyo)
-[[ -f "$HOME/local/python/env/default/bin/activate" ]] && source "$HOME/local/python/env/default/bin/activate" 2>&-
+VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -f "$HOME/local/python/env/default/bin/activate" ]] && source "$HOME/local/python/env/default/bin/activate"
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
