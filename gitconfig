@@ -13,12 +13,15 @@
 	diffstat = diff --stat -r
 	l = log --abbrev-commit --pretty=oneline --graph --decorate
   lg = log --max-count=5
-	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all
 	st = status
 	sm = submodule
 	diffs = diff --staged
-  diffw = diff --color-words
+	diffw = diff --color-words
+	diffsw = diff --color-words --staged
+	diffws = diff --color-words --staged
 [diff]
 	renames = true
+	renameLimit = 1000
 [receive]
 	denyCurrentBranch = warn
