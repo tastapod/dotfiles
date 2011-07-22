@@ -16,6 +16,9 @@ precmd () {
     vcs_info
 }
  
+[[ -o interactive ]] && source /etc/profile
+
+
 setopt prompt_subst
 PS1='${vcs_info_msg_0_}%F{yellow}%m %1~ %%%F{white} '
 
