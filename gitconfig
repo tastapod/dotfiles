@@ -13,7 +13,7 @@
 	diffstat = diff --stat -r
 	l = log --abbrev-commit --pretty=oneline --graph --decorate
   lg = log --max-count=5
-	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all
+        serve = daemon --reuseaddr --verbose  --base-path=. --export-all
 	st = status
 	sm = submodule
 	diffs = diff --staged
