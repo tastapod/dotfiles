@@ -25,3 +25,5 @@
 	renameLimit = 1000
 [receive]
 	denyCurrentBranch = warn
+[core]
+	excludesfile = ~/.cvsignore
