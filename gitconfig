@@ -1,29 +1,29 @@
 [user]
-	name = Dan North
-	email = dan@dannorth.net
+        name = Dan North
+        email = dan@dannorth.net
 [color]
-	ui = auto
-	diff = auto
-	status = auto
+        ui = auto
+        diff = auto
+        status = auto
 [alias]
-	br = branch
-	changes = diff --name-status -r
-	ci = commit
-	co = checkout
-	diffstat = diff --stat -r
-	l = log --abbrev-commit --pretty=oneline --graph --decorate
-  lg = log --max-count=5
+        br = branch
+        changes = diff --name-status -r
+        ci = commit
+        co = checkout
+        diffstat = diff --stat -r
+        l = log --abbrev-commit --pretty=oneline --graph --decorate
+        lg = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
-	st = status
-	sm = submodule
-	diffs = diff --staged
-	diffw = diff --color-words
-	diffsw = diff --color-words --staged
-	diffws = diff --color-words --staged
+        st = status
+        sm = submodule
+        diffs = diff --staged
+        diffw = diff --color-words
+        diffsw = diff --color-words --staged
+        diffws = diff --color-words --staged
 [diff]
-	renames = true
-	renameLimit = 1000
+        renames = true
+        renameLimit = 1000
 [receive]
-	denyCurrentBranch = warn
+        denyCurrentBranch = warn
 [core]
-	excludesfile = ~/.cvsignore
+        excludesfile = ~/.cvsignore
