@@ -95,7 +95,9 @@ alias markdown=rdiscount
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 fignore+=(.pyc .pyo)
 VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -f "$HOME/local/python/env/default/bin/activate" ]] && source "$HOME/local/python/env/default/bin/activate"
+
+[[ -f "$HOME/local/python/env/default/bin/activate" ]] && \
+    source "$HOME/local/python/env/default/bin/activate"
 
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
