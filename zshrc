@@ -80,6 +80,7 @@ asdf() { setxkbmap us dvorak -option ctrl:nocaps; }
 aaaa() { setxkbmap gb -option ctrl:nocaps; }
 one() { xrandr --output HDMI1 --off; }
 two() { xrandr --output HDMI1 --right-of LVDS1 --auto; }
+vimwiki() { vim +bd +VimwikiUISelect; }
 
 
 bindkey  '\C-[[1;5D' backward-word
@@ -91,13 +92,17 @@ set +o ignoreeof
 [[ -s "/usr/local/lib/rvm" ]] && source "/usr/local/lib/rvm"
 alias markdown=rdiscount
 
-# Python
+# Python uses virtualenv
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 fignore+=(.pyc .pyo)
 VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -f ~/local/python/default/bin/activate ]] && \
+    source ~/local/python/default/bin/activate
 
-[[ -f "$HOME/local/python/env/default/bin/activate" ]] && \
-    source "$HOME/local/python/env/default/bin/activate"
+# node.js uses nodeenv
+NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -f ~/local/nodejs/default/bin/activate ]] && \
+    source ~/local/nodejs/default/bin/activate
 
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
