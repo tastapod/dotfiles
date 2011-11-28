@@ -96,13 +96,11 @@ alias markdown=rdiscount
 export PYTHONSTARTUP="$HOME/.pythonstartup"
 fignore+=(.pyc .pyo)
 VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -f ~/local/python/default/bin/activate ]] && \
-    source ~/local/python/default/bin/activate
+[[ -d ~/local/python/default ]] && source ~/local/python/default/bin/activate
 
 # node.js uses nodeenv
 NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -f ~/local/nodejs/default/bin/activate ]] && \
-    source ~/local/nodejs/default/bin/activate
+[[ -d ~/local/nodejs/default ]] && source ~/local/nodejs/default/bin/activate
 
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
