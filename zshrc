@@ -16,7 +16,7 @@ precmd () {
     vcs_info
 }
  
-[[ -o interactive ]] && source /etc/profile
+#[[ -o interactive ]] && source /etc/profile
 
 
 setopt prompt_subst
@@ -32,6 +32,7 @@ export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESSCLOSE='/usr/bin/lesspipe %s %s'
 export LESS='-R'
 export GREPOPTIONS='--color=auto'
+eval $(dircolors)
 
 export LC_CTYPE='en_GB.UTF-8'
 
@@ -60,8 +61,9 @@ manpath=( $HOME/local/share/man "$manpath[@]" )
 
 # Sources live in src/{repo}/{owner}/{project}
 # e.g. src/github/tastapod/dotfiles
-gitdirs=( $(find $HOME/src -maxdepth 4 -follow -type d \( -name .git -print -o -name .svn -name .hg \) -prune ) )
-cdpath=( . "${(u)gitdirs[@]%/*/.git}" ) # parents of working directories with duplicates removed
+gitdirs=($HOME/src/*/*/*/.git)
+repodirs=($HOME/src/*)
+cdpath=( . "${(u)gitdirs[@]%/*/.git}" "${repodirs[@]}") # parents of working directories with duplicates removed
 unset gitdirs
 
 source /etc/zsh_command_not_found
@@ -89,8 +91,7 @@ bindkey  '\C-[[1;5C' forward-word
 set +o ignoreeof
 
 # RVM - ruby version manager
-[[ -s "/usr/local/lib/rvm" ]] && source "/usr/local/lib/rvm"
-alias markdown=rdiscount
+#[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"
 
 # Python uses virtualenv
 export PYTHONSTARTUP="$HOME/.pythonstartup"
