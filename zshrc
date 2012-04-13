@@ -16,32 +16,15 @@ precmd () {
     vcs_info
 }
  
-#[[ -o interactive ]] && source /etc/profile
-
-
-setopt prompt_subst
-PS1='${vcs_info_msg_0_}%F{yellow}%m %1~ %%%F{white} '
-
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
-
-if [[ -f ~/.gnomerc ]] source ~/.gnomerc
-if [[ -f ~/.zshrc_local ]] source ~/.zshrc_local # Host-specific stuff
-
-export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-export LESSCLOSE='/usr/bin/lesspipe %s %s'
-export LESS='-R'
-export GREPOPTIONS='--color=auto'
-eval $(dircolors)
-
-export LC_CTYPE='en_GB.UTF-8'
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt extendedglob nomatch notify
-unsetopt beep
+setopt extendedglob notify
+unsetopt beep nomatch
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -55,16 +38,6 @@ compinit
 setopt histignorespace histignoredups
 alias fg=' fg' # fg doesn't make it into the history - hooray!
 alias fgfg=fg  # Weird - I often find myself typing this
-
-path=( $HOME/bin $HOME/local/bin $HOME/Applications/*/current/bin(/) "$path[@]" )
-manpath=( $HOME/local/share/man "$manpath[@]" )
-
-# Sources live in src/{repo}/{owner}/{project}
-# e.g. src/github/tastapod/dotfiles
-gitdirs=($HOME/src/*/*/*/.git)
-repodirs=($HOME/src/*)
-cdpath=( . "${(u)gitdirs[@]%/*/.git}" "${repodirs[@]}") # parents of working directories with duplicates removed
-unset gitdirs
 
 source /etc/zsh_command_not_found
 
@@ -89,16 +62,4 @@ bindkey  '\C-[[1;5D' backward-word
 bindkey  '\C-[[1;5C' forward-word
 
 set +o ignoreeof
-
-# RVM - ruby version manager
-#[[ -s "/etc/profile.d/rvm.sh" ]] && source "/etc/profile.d/rvm.sh"
-
-# Python uses virtualenv
-export PYTHONSTARTUP="$HOME/.pythonstartup"
-fignore+=(.pyc .pyo)
-[[ -d ~/local/python/default ]] && source ~/local/python/default/bin/activate
-
-# node.js uses nodeenv
-NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -d ~/local/nodejs/default ]] && source ~/local/nodejs/default/bin/activate
 
