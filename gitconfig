@@ -11,7 +11,7 @@
         ci = commit
         co = checkout
         diffstat = diff --stat -r
-        l = log --abbrev-commit --pretty=oneline --graph --decorate
+        l = log --oneline --graph --decorate
         lg = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
         st = status
@@ -27,3 +27,5 @@
         denyCurrentBranch = warn
 [core]
         excludesfile = ~/.cvsignore
+[pager]
+        log = false

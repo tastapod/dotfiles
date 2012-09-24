@@ -31,9 +31,8 @@ rbenv rehash
 
 # python
 export PYTHONSTARTUP="$HOME/.pythonstartup"
-export VIRTUAL_ENV_DISABLE_PROMPT=yes
 fignore+=(.pyc .pyo)
-[[ -d ~/local/python/default ]] && source ~/local/python/default/bin/activate
+[[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
 # node.js
-[[ -f ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
+[[ -f ~/local/nvm/nvm.sh ]] && source ~/local/nvm/nvm.sh
