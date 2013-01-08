@@ -15,14 +15,14 @@ eval $(dircolors)
 export LC_CTYPE='en_GB.UTF-8'
 
 # core path
-path=( $HOME/bin $HOME/local/bin $HOME/Applications/*/current/bin(/) "$path[@]" )
+path=( $HOME/bin $HOME/local/bin $HOME/Applications/*/current/bin(/) $HOME/Languages/*/current/bin(/) "$path[@]" )
 manpath=( $HOME/local/share/man "$manpath[@]" )
 
 # sources live in src/{repo}/{owner}/{project} eg. src/github/tastapod/dotfiles
 gitdirs=($HOME/src/*/*/*/.git)
-svndirs=($HOME/src/*/*/*/.svn)
+#svndirs=($HOME/src/*/*/*/.svn)
 repodirs=($HOME/src/*)
-cdpath=( . "${(u)gitdirs[@]%/*/.git}" "${(u)svndirs[@]%/*/.svn}" "${repodirs[@]}") # parents of working directories with duplicates removed
+cdpath=( . "${(u)gitdirs[@]%/*/.git}" "${repodirs[@]}") # parents of working directories with duplicates removed
 unset gitdirs
 
 # ruby
@@ -34,5 +34,8 @@ export PYTHONSTARTUP="$HOME/.pythonstartup"
 fignore+=(.pyc .pyo)
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
-# node.js
+# nodejs
 [[ -f ~/local/nvm/nvm.sh ]] && source ~/local/nvm/nvm.sh
+
+# go
+which go >&- && export GOROOT=$(dirname $(dirname $(which go)))
