@@ -15,7 +15,7 @@ eval $(dircolors)
 export LC_CTYPE='en_GB.UTF-8'
 
 # core path
-path=( $HOME/bin $HOME/local/bin $HOME/Applications/*/current/bin(/) $HOME/Languages/*/current/bin(/) "$path[@]" )
+path=( $HOME/bin $HOME/.local/bin $HOME/Applications/*/current/bin(/) $HOME/Languages/*/current/bin(/) "$path[@]" )
 manpath=( $HOME/local/share/man "$manpath[@]" )
 
 # sources live in src/{repo}/{owner}/{project} eg. src/github/tastapod/dotfiles
@@ -34,8 +34,11 @@ export PYTHONSTARTUP="$HOME/.pythonstartup"
 fignore+=(.pyc .pyo)
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
-# nodejs
-[[ -f ~/local/nvm/nvm.sh ]] && source ~/local/nvm/nvm.sh
-
 # go
 which go >&- && export GOROOT=$(dirname $(dirname $(which go)))
+
+# nodejs
+export N_PREFIX=$HOME/.local
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
