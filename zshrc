@@ -45,7 +45,7 @@ source /etc/zsh_command_not_found
 # WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # Aliases
-alias open=gnome-open
+alias open=xdg-open
 alias ls='ls --color=auto'
 export GREP_OPTIONS=--color
 
