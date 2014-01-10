@@ -29,3 +29,5 @@
         excludesfile = ~/.cvsignore
 [pager]
         log = false
+[push]
+	default = simple
