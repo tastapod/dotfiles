@@ -30,4 +30,4 @@
 [pager]
         log = false
 [push]
-	default = simple
+	default = current
