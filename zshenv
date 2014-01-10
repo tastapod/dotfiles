@@ -1,6 +1,3 @@
-if [[ -f ~/.gnomerc ]] source ~/.gnomerc
-if [[ -f ~/.zshrc_local ]] source ~/.zshrc_local # Host-specific stuff
-
 # prompt
 setopt prompt_subst
 PS1='${vcs_info_msg_0_}%F{yellow}%m %1~ %%%F{white} '
@@ -15,7 +12,7 @@ eval $(dircolors)
 export LC_CTYPE='en_GB.UTF-8'
 
 # core path
-path=( $HOME/bin $HOME/.local/bin $HOME/Applications/*/current/bin(/) $HOME/Languages/*/current/bin(/) "$path[@]" )
+path=( $HOME/bin $HOME/Applications/*/current/bin(/) $HOME/Languages/*/current/bin(/) "$path[@]" )
 manpath=( $HOME/local/share/man "$manpath[@]" )
 
 # sources live in src/{repo}/{owner}/{project} eg. src/github/tastapod/dotfiles
@@ -38,7 +35,12 @@ fignore+=(.pyc .pyo)
 which go >&- && export GOROOT=$(dirname $(dirname $(which go)))
 
 # nodejs
-export N_PREFIX=$HOME/.local
+export N_PREFIX=$HOME/.n
+path+=("$N_PREFIX/bin")
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Host-specific stuff
+if [[ -f ~/.gnomerc ]] source ~/.gnomerc
+if [[ -f ~/.zshrc_local ]] source ~/.zshrc_local
