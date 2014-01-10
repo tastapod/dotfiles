@@ -15,7 +15,7 @@ precmd () {
     }
     vcs_info
 }
- 
+
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
@@ -53,13 +53,20 @@ export GREP_OPTIONS=--color
 aoeu() { setxkbmap us -option ctrl:nocaps; }
 asdf() { setxkbmap us dvorak -option ctrl:nocaps; }
 aaaa() { setxkbmap gb -option ctrl:nocaps; }
-one() { xrandr --output HDMI1 --off; }
-two() { xrandr --output HDMI1 --right-of LVDS1 --auto; }
-vimwiki() { vim +bd +VimwikiUISelect; }
-
 
 bindkey  '\C-[[1;5D' backward-word
 bindkey  '\C-[[1;5C' forward-word
 
 set +o ignoreeof
 
+# Go
+[[ -f "$GOROOT/misc/zsh/go" ]] && source "$GOROOT/misc/zsh/go"
+function go_here {
+    if [[ -n "$GOPATH" ]]; then
+        # Remove $GOPATH/bin from path
+        path[(R)$GOPATH/bin]=()
+    fi
+    export GOPATH=$PWD
+    path+=( $GOPATH/bin )
+}
+chpwd_functions+=( go_here )
