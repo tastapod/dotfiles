@@ -6,14 +6,17 @@ PS1='${vcs_info_msg_0_}%F{yellow}%m %1~ %%%F{white} '
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESSCLOSE='/usr/bin/lesspipe %s %s'
 export LESS='-R'
-export GREPOPTIONS='--color=auto'
-eval $(dircolors)
+if [[ $(uname) == 'Linux' ]]; then
+    export GREPOPTIONS='--color=auto'
+    eval $(dircolors)
+fi
 
 export LC_CTYPE='en_GB.UTF-8'
 
 # core path
-path=( $HOME/bin $HOME/Applications/*/current/bin(/) $HOME/Languages/*/current/bin(/) "$path[@]" )
-manpath=( $HOME/local/share/man "$manpath[@]" )
+[[ -d $HOME/Languages ]] && path=( $HOME/Languages/*/current/bin(/) "$path[@]" )
+[[ -d $HOME/Applications ]] && path=( $HOME/Applications/*/current/bin(/) "$path[@]" )
+path=( $HOME/bin "$path[@]" )
 
 # sources live in src/{repo}/{owner}/{project} eg. src/github/tastapod/dotfiles
 gitdirs=($HOME/src/*/*/*/.git)

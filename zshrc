@@ -39,20 +39,10 @@ setopt histignorespace histignoredups
 alias fg=' fg' # fg doesn't make it into the history - hooray!
 alias fgfg=fg  # Weird - I often find myself typing this
 
-source /etc/zsh_command_not_found
+[[ -f /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
 # Uncomment to stop / being a wordchar
 # WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-
-# Aliases
-alias open=xdg-open
-alias ls='ls --color=auto'
-export GREP_OPTIONS=--color
-
-# Keyboard layouts
-aoeu() { setxkbmap us -option ctrl:nocaps; }
-asdf() { setxkbmap us dvorak -option ctrl:nocaps; }
-aaaa() { setxkbmap gb -option ctrl:nocaps; }
 
 bindkey  '\C-[[1;5D' backward-word
 bindkey  '\C-[[1;5C' forward-word
