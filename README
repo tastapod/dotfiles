@@ -1,4 +1,4 @@
 # Clone this into your home directory, then symlink like this:
 # (You'll  need to move your dotfiles out the way first).
 
-for f in cvsignore gemrc gitconfig pythonstartup tmux.conf zshrc zshenv; do ln -s dotfiles/$f .$(basename $f); done
+for f in cvsignore gemrc gitconfig pythonstartup tmux.conf zshrc zshenv; do ln -is dotfiles/$f .$f; done
