@@ -49,14 +49,12 @@ bindkey  '\C-[[1;5C' forward-word
 
 set +o ignoreeof
 
-# Go
-[[ -f "$GOROOT/misc/zsh/go" ]] && source "$GOROOT/misc/zsh/go"
-function go_here {
-    if [[ -n "$GOPATH" ]]; then
-        # Remove $GOPATH/bin from path
-        path[(R)$GOPATH/bin]=()
-    fi
-    export GOPATH=$PWD
-    path+=( $GOPATH/bin )
-}
-chpwd_functions+=( go_here )
+# go
+if [[ -n "$GOTOOLDIR" ]]; then
+    zshgo=$GOTOOLDIR/../../../../share/zsh/site-functions/go
+    [[ -f "$zshgo" ]] && source "$zshgo"
+    unset zshgo
+fi
+
+# Autojump
+[[ -f "/usr/local/etc/autojump.zsh" ]] && source "/usr/local/etc/autojump.zsh"
