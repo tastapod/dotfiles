@@ -15,7 +15,7 @@
         lg = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
         root = rev-parse --show-toplevel
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
-        st = status
+        st = status -s
         sm = submodule
         diffs = diff --staged
         diffw = diff --color-words
