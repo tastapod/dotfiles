@@ -10,17 +10,20 @@
         changes = diff --name-status -r
         ci = commit
         co = checkout
+        diffs = diff --staged
         diffstat = diff --stat -r
+        diffsw = diff --color-words --staged
+        diffw = diff --color-words
+        diffws = diff --color-words --staged
         l = log --oneline --graph --decorate
-        lg = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
+        lg = log --pretty=format:"%h%x20%an%x20%ad%x20%s" --date=short --reverse
+        manifest = 
+        pr = pull --rebase
+        pullr = pull --rebase
         root = rev-parse --show-toplevel
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
-        st = status -s
         sm = submodule
-        diffs = diff --staged
-        diffw = diff --color-words
-        diffsw = diff --color-words --staged
-        diffws = diff --color-words --staged
+        st = status -s
 [diff]
         renames = true
         renameLimit = 1000
@@ -32,3 +35,7 @@
         log = false
 [push]
 	default = current
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
