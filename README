@@ -1,4 +1,6 @@
-# Clone this into your home directory, then symlink like this:
-# (You'll  need to move your dotfiles out the way first).
+# Clone this repository into your home directory, then link the files like this:
+#
+# Note: this will replace your dotfiles, so move them out the way first!
 
-for f in cvsignore gemrc gitconfig pythonstartup tmux.conf zshrc zshenv; do ln -is dotfiles/$f .$f; done
+git clone git@github.com:tastapod/dotfiles.git .config/tastapod/dotfiles
+for f in .config/tastapod/dotfiles/*; do ln -f -s $f .${f##*/}; done
