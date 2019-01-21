@@ -67,7 +67,7 @@ alias wiki='gvim +VimwikiIndex'
 [[ -f /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found
 
 # Uncomment to stop / being a wordchar
-# WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+local WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 bindkey  '\C-[[1;5D' backward-word
 bindkey  '\C-[[1;5C' forward-word
@@ -120,7 +120,7 @@ fi
 # go
 if whence -p go >&/dev/null; then
     compdef _gnu_generic godoc gofmt
-    export GOPATH="$HOME/go"
+    export GOPATH="$HOME/Go"
     path+=( "$GOPATH/bin" )
     cdpath+=( $GOPATH/src/*/* )
 fi
@@ -155,4 +155,8 @@ sdk() {
     export SDKMAN_DIR="/Users/dan/.sdkman"
     [[ -s "/Users/dan/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dan/.sdkman/bin/sdkman-init.sh"
     sdk "$@"
+}
+
+path() {
+    print -l $path
 }
