@@ -31,11 +31,12 @@
         denyCurrentBranch = warn
 [core]
         excludesfile = ~/.cvsignore
+        pager = less -F -X
 [pager]
         log = false
 [push]
-	default = current
+        default = current
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+        clean = git-lfs clean %f
+        smudge = git-lfs smudge %f
+        required = true
