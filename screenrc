@@ -1,1 +1,1 @@
-setenv SSH_AUTH_SOCK "$HOME/tmp/ssh-agent-screen"
+setenv SSH_AUTH_SOCK "$HOME/.ssh/screen-auth-sock"
