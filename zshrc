@@ -92,7 +92,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 local add_path_if_exists() {
     if [[ -d "$1" ]]; then
-        path=("$path[@]" "$1")
+        path=("$1" "$path[@]")
     fi
 }
 
@@ -108,17 +108,11 @@ fignore+=(.pyc .pyo)
 
 [[ -e ~/.pythonstartup ]] && export PYTHONSTARTUP="$HOME/.pythonstartup"
 
+whence python3 >&/dev/null && path+=( "$(python3 -msite --user-base)/bin" )
+whence python2 >&/dev/null && path+=( "$(python2 -msite --user-base)/bin" )
+
 # Lazy loading of virtualenvwrapper functions
-if whence -p virtualenvwrapper.sh >&/dev/null; then
-    # shims for virtualenvwrapper functions - can probably clean this up with eval
-    lssitepackages() { source $(whence -p virtualenvwrapper.sh); lssitepackages "$@"; }
-    mktmpenv() { source $(whence -p virtualenvwrapper.sh); mktmpenv "$@"; }
-    mkvirtualenv() { source $(whence -p virtualenvwrapper.sh); mkvirtualenv "$@"; }
-    rmvirtualenv() { source $(whence -p virtualenvwrapper.sh); rmvirtualenv "$@"; }
-    showvirtualenv() { source $(whence -p virtualenvwrapper.sh); showvirtualenv "$@"; }
-    workon() { source $(whence -p virtualenvwrapper.sh); workon "$@"; }
-fi
-#source $(whence -p virtualenvwrapper.sh || echo '/dev/null')
+whence virtualenvwrapper_lazy.sh >/dev/null && source $_
 
 # go
 if whence -p go >&/dev/null; then
@@ -132,10 +126,7 @@ fi
 add_path_if_exists "$HOME/.cargo/bin"
 
 # nodejs
-if [[ -d $HOME/.n ]]; then
-    export N_PREFIX=$HOME/.n
-    add_path_if_exists "$N_PREFIX/bin"
-fi
+export N_PREFIX=$HOME/.local
 
 # Other useful paths
 cdpath+=( ~/Documents/Talks/$(date +'%Y') )
