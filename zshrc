@@ -17,9 +17,12 @@ compinit
 
 # prompt
 setopt prompt_subst
+PS1='${vcs_info_msg_0_}%F{cyan}%m %1~ %{$reset_color%}%% '
 
 # Git prompt highlighting from http://bit.ly/ej4ZS8
-autoload -U vcs_info
+autoload -Uz vcs_info
+autoload -Uz colors
+#colors
 zstyle ':vcs_info:*' stagedstr '%F{green}●'
 zstyle ':vcs_info:*' unstagedstr '%F{red}●'
 zstyle ':vcs_info:*' check-for-changes true
