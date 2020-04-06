@@ -1,6 +1,6 @@
 [user]
-        name = Dan North
-        email = dan@dannorth.net
+        name = Daniel North
+        email = daniel@dannorth.net
 [color]
         ui = auto
         diff = auto
@@ -17,9 +17,6 @@
         diffws = diff --color-words --staged
         l = log --oneline --graph --decorate
         lg = log --pretty=format:"%h%x20%an%x20%ad%x20%s" --date=short --reverse
-        manifest = 
-        pr = pull --rebase
-        pullr = pull --rebase
         root = rev-parse --show-toplevel
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
         sm = submodule
@@ -32,11 +29,11 @@
 [core]
         excludesfile = ~/.cvsignore
         pager = less -F -X
-[pager]
-        log = false
 [push]
         default = current
 [filter "lfs"]
         clean = git-lfs clean %f
         smudge = git-lfs smudge %f
         required = true
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
