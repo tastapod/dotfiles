@@ -17,7 +17,7 @@ compinit
 
 # prompt
 setopt prompt_subst
-PS1='${vcs_info_msg_0_}%F{cyan}%m %1~ %{$reset_color%}%% '
+PS1='${vcs_info_msg_0_}%F{cyan}'"${WSL_DISTRO_NAME:-$(hostname)}"' %1~ %{$reset_color%}%% '
 
 # Git prompt highlighting from http://bit.ly/ej4ZS8
 autoload -Uz vcs_info
