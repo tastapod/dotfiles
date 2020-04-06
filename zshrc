@@ -21,8 +21,7 @@ PS1='${vcs_info_msg_0_}%F{cyan}%m %1~ %{$reset_color%}%% '
 
 # Git prompt highlighting from http://bit.ly/ej4ZS8
 autoload -Uz vcs_info
-autoload -Uz colors
-#colors
+autoload -Uz colors && colors
 zstyle ':vcs_info:*' stagedstr '%F{green}●'
 zstyle ':vcs_info:*' unstagedstr '%F{red}●'
 zstyle ':vcs_info:*' check-for-changes true
@@ -36,9 +35,6 @@ precmd () {
     }
     vcs_info
 }
-
-autoload -U colors && colors
-PS1='${vcs_info_msg_0_}%F{yellow}%m %1~ %{$reset_color%}%% '
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -57,7 +53,6 @@ export LESS='-R'
 if [[ $(uname) == 'Linux' ]]; then
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
     export LESSCLOSE='/usr/bin/lesspipe %s %s'
-    export GREPOPTIONS='--color=auto'
     eval $(dircolors)
 fi
 
@@ -80,15 +75,14 @@ set +o ignoreeof
 # None of these should have duplicate entries
 set -U CDPATH FIGNORE MANPATH PATH
 
+# path=( /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin )
+
 # core path
 [[ -d ~/Languages ]] && path=( ~/Languages/*/current/bin(/) "$path[@]" )
 path=( $HOME/bin "$path[@]" )
 
 # Easy cd access to projects
 [[ -d ~/Projects ]] && cdpath=( . ~/Projects/*/* )
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 local add_path_if_exists() {
     if [[ -d "$1" ]]; then
@@ -127,6 +121,7 @@ add_path_if_exists "$HOME/.cargo/bin"
 
 # nodejs
 export N_PREFIX=$HOME/.local
+add_path_if_exists "$N_PREFIX/bin"
 
 # Other useful paths
 cdpath+=( ~/Documents/Talks/$(date +'%Y') )
@@ -154,3 +149,4 @@ sdk() {
 path() {
     print -l $path
 }
+
