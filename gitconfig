@@ -17,6 +17,7 @@
         diffws = diff --color-words --staged
         l = log --oneline --graph --decorate
         lg = log --pretty=format:"%h%x20%an%x20%ad%x20%s" --date=short --reverse
+	pullr = pull --rebase
         root = rev-parse --show-toplevel
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
         sm = submodule
@@ -32,10 +33,13 @@
 [push]
         default = current
 [filter "lfs"]
-        clean = git-lfs clean %f
-        smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
         required = true
+	process = git-lfs filter-process
 [credential]
 	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
-[pull]
-	rebase = true
+[lfs "https://devops.jio.com/"]
+	locksverify = true
+[lfs "https://gitlab.com/"]
+	locksverify = true
