@@ -1,10 +1,3 @@
-[user]
-	name = Daniel Terhorst-North
-        email = daniel@dannorth.net
-[color]
-        ui = auto
-        diff = auto
-        status = auto
 [alias]
         br = branch
         changes = diff --name-status -r
@@ -22,24 +15,24 @@
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
         sm = submodule
         st = status -s
-[diff]
-        renames = true
-        renameLimit = 1000
-[receive]
-        denyCurrentBranch = warn
+[color]
+        ui = auto
+        diff = auto
+        status = auto
 [core]
         excludesfile = ~/.cvsignore
         pager = less -F -X
-[push]
-        default = current
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-        required = true
-	process = git-lfs filter-process
 [credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
+        helper = store
+[diff]
+        renames = true
+        renameLimit = 1000
 [lfs "https://devops.jio.com/"]
 	locksverify = true
 [lfs "https://gitlab.com/"]
 	locksverify = true
+[push]
+        default = current
+[user]
+	name = Daniel Terhorst-North
+        email = daniel@dannorth.net
