@@ -1,6 +1,0 @@
-# Clone this repository into your home directory, then link the files like this:
-#
-# Note: this will replace your dotfiles, so move them out the way first!
-
-git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
-for f in .config/tastapod/dotfiles/*; do ln -f -s $f .${f##*/}; done
