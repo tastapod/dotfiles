@@ -13,4 +13,5 @@ Note: _this will replace your dotfiles_, so move them out of the way first!
     git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
     for f in .config/tastapod/dotfiles/*; do ln -f -s "$f" ".${f##*/}"; done
     ```
-
+3. Add any host-specific settings in `.zlogin`, which is sourced after
+`.zshenv` and `.zshrc` for a login shell.
