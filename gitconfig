@@ -22,6 +22,7 @@
 [core]
         excludesfile = ~/.cvsignore
         pager = less -F -X
+	symlinks = false
 [credential]
         helper = store
 [diff]
