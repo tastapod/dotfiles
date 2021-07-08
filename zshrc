@@ -9,5 +9,6 @@ plugins=(git golang kubectl)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$PATH:$HOME/.local/bin"
+path+="$HOME/.local/bin"
+cdpath=( "$HOME/Projects" )
 umask 002
