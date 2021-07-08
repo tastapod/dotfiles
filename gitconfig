@@ -10,7 +10,7 @@
         diffws = diff --color-words --staged
         l = log --oneline --graph --decorate
         lg = log --pretty=format:"%h%x20%an%x20%ad%x20%s" --date=short --reverse
-	pullr = pull --rebase
+        pullr = pull --rebase
         root = rev-parse --show-toplevel
         serve = daemon --reuseaddr --verbose  --base-path=. --export-all
         sm = submodule
@@ -22,29 +22,31 @@
 [core]
         excludesfile = ~/.cvsignore
         pager = less -F -X
-	symlinks = false
+        symlinks = false
 [credential]
         helper = store
 [diff]
         renames = true
         renameLimit = 1000
+[fetch]
+        prune = true
+[filter "lfs"]
+        process = git-lfs filter-process
+        required = true
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+[init]
+        defaultBranch = main
 [lfs "https://devops.jio.com/"]
-	locksverify = true
+        locksverify = true
 [lfs "https://gitlab.com/"]
-	locksverify = true
+        locksverify = true
+[pull]
+        rebase = true
 [push]
         default = current
 [user]
-	name = Daniel Terhorst-North
+        name = Daniel Terhorst-North
         email = daniel@dannorth.net
-[pull]
-	rebase = true
-[fetch]
-	prune = true
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-[init]
-	defaultBranch = main
+[include]
+        path = .local/etc/gitconfig
