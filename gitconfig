@@ -42,7 +42,7 @@
 [lfs "https://gitlab.com/"]
         locksverify = true
 [pull]
-        rebase = true
+        rebase = false
 [push]
         default = current
 [user]
