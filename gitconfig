@@ -20,7 +20,7 @@
         diff = auto
         status = auto
 [core]
-        excludesfile = ~/.cvsignore
+	excludesfile = ~/.cvsignore
         pager = less -F -X
         symlinks = false
 [credential]
@@ -28,13 +28,9 @@
 [diff]
         renames = true
         renameLimit = 1000
+        colorMoved = zebra
 [fetch]
         prune = true
-[filter "lfs"]
-        process = git-lfs filter-process
-        required = true
-        clean = git-lfs clean -- %f
-        smudge = git-lfs smudge -- %f
 [init]
         defaultBranch = main
 [lfs "https://devops.jio.com/"]
@@ -43,10 +39,26 @@
         locksverify = true
 [pull]
         rebase = false
+        twohead = ort
 [push]
         default = current
 [user]
-        name = Daniel Terhorst-North
-        email = daniel@dannorth.net
+	name = Daniel Terhorst-North
+	email = daniel@dannorth.net
 [include]
         path = .local/etc/gitconfig
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+# vim: ft=gitconfig
+[commit]
+	template = /Users/daniel/.stCommitMsg
