@@ -6,6 +6,8 @@ HIST_STAMPS="yyyy-mm-dd"
 
 : ${ZSH_THEME:=kolo}
 
+plugins+=(rust)
+
 # User configuration
 path+="$HOME/.local/bin"
 cdpath=( "$HOME/Projects" )
