@@ -38,8 +38,6 @@
 	required = true
 [init]
         defaultBranch = main
-[lfs "https://devops.jio.com/"]
-        locksverify = true
 [lfs "https://gitlab.com/"]
         locksverify = true
 [pull]
