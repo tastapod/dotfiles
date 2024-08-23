@@ -1,52 +1,53 @@
 [alias]
-        br = branch
-        changes = diff --name-status -r
-        ci = commit
-        co = checkout
-        diffs = diff --staged
-        diffstat = diff --stat -r
-        diffsw = diff --color-words --staged
-        diffw = diff --color-words
-        diffws = diff --color-words --staged
-        l = log --oneline --graph --decorate
-        lg = log --pretty=format:"%h%x20%an%x20%ad%x20%s" --date=short --reverse
-        pullr = pull --rebase
-        root = rev-parse --show-toplevel
-        serve = daemon --reuseaddr --verbose  --base-path=. --export-all
-        sm = submodule
-        st = status -s
+    br = branch
+    changes = diff --name-status -r
+    ci = commit
+    co = checkout
+    diffs = diff --staged
+    diffstat = diff --stat -r
+    diffsw = diff --color-words --staged
+    diffw = diff --color-words
+    diffws = diff --color-words --staged
+    l = log --oneline --graph --decorate
+    lg = log --pretty=format:"%h%x20%an%x20%ad%x20%s" --date=short --reverse
+    pullr = pull --rebase
+    root = rev-parse --show-toplevel
+    serve = daemon --reuseaddr --verbose  --base-path=. --export-all
+    sm = submodule
+    st = status -sb
 [color]
-        ui = auto
-        diff = auto
-        status = auto
+    ui = auto
+    diff = auto
+    status = auto
 [core]
-	excludesfile = ~/.cvsignore
-        pager = less -F -X
-        symlinks = false
+    excludesfile = ~/.cvsignore
+    pager = less -F -X
 [credential]
-        helper = store
+    helper = store
 [diff]
-        renames = true
-        renameLimit = 1000
-        colorMoved = zebra
+    renames = true
+    renameLimit = 1000
+    colorMoved = zebra
 [fetch]
-        prune = true
+    prune = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
 [init]
-        defaultBranch = main
+    defaultBranch = main
 [lfs "https://gitlab.com/"]
-        locksverify = true
+    locksverify = true
 [pull]
-        rebase = false
+    rebase = true
 [push]
-        default = current
+    default = current
+[rebase]
+    autoStash = true
 [user]
-	name = Daniel Terhorst-North
-	email = daniel@dannorth.net
+    name = Daniel Terhorst-North
+    email = daniel@dannorth.net
 [include]
-        path = ~/.local/etc/gitconfig
+    path = ~/.local/etc/gitconfig
 # vim: ft=gitconfig
