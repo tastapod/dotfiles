@@ -2,4 +2,4 @@
 export EDITOR=vim
 
 # zsh customisation
-export ZSH_CUSTOM="$HOME/.config/tastapod/zsh_custom"
+export ZSH_CUSTOM="$HOME/.config/tastapod/omz_custom"

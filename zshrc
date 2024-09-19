@@ -22,6 +22,9 @@ PS1=$(echo "$PS1" | sed 's/ [^ ]* $/ %# /')
 path+="$HOME/.local/bin"
 cdpath=( "$HOME/Projects" )
 
+# Make sure completions are working
+autoload -Uz compinit
+compinit
+
 # For profiling, uncomment next line and line at top
 # zprof
-
