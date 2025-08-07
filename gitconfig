@@ -30,6 +30,10 @@
     colorMoved = zebra
 [fetch]
     prune = true
+[filter "go-mod-replace"]
+    #required = true
+    clean = sed 's,^replace,// replace,'
+    smudge = sed 's,^// replace,replace,'
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
