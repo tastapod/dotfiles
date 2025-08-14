@@ -1,4 +1,15 @@
 mattmc3/ez-compinit
-#spaceship-prompt/spaceship-prompt
-sindresorhus/pure
 zsh-users/zsh-completions kind:fpath path:src
+sindresorhus/pure
+
+belak/zsh-utils path:editor path:history path:utility
+
+ptavares/zsh-direnv
+
+# TODO: figure out caching for this
+#snailslug/autoupdate-antidote-zsh
+
+# Other Fish-like features
+zdharma-continuum/fast-syntax-highlighting  # Syntax highlighting
+zsh-users/zsh-autosuggestions               # Auto-suggestions
+zsh-users/zsh-history-substring-search      # Up/Down to search history
