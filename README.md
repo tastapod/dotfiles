@@ -6,10 +6,11 @@ I was using [Oh My Zsh](https://ohmyz.sh) but I found it a bit sluggish. I have 
 
 _Note: this will replace your dot files, so move them out of the way first!_
 
-Clone this repository into your home directory, then link the files:
+Clone this repository from your home directory, then link the files:
 
 ```zsh
-git clone https://github.com/tastapod/dotfiles.git ~/.config/tastapod/dotfiles
+cd
+git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
 ln -vsf .config/tastapod/dotfiles/{.*(.),Brewfile} .
 ```
 
