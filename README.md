@@ -10,7 +10,7 @@ Clone this repository from your home directory, then link the files:
 
 ```zsh
 cd
-git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
+git clone --depth=1 https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
 ln -vsf .config/tastapod/dotfiles/{.*(.),Brewfile} .
 ```
 
