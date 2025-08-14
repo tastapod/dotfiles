@@ -18,9 +18,11 @@ This creates symlinks for all the dot files plus some extras (for now just the `
 
 ## Notes
 
+1. You do not need to install `antidote`, it bootstraps automatically.
+
 1. If you get an error from `xcrun` you need to run `xcode-select --install` first.
 
-2. Add any host-specific settings in `~/.zlogin`, which is sourced last for a login shell. I use this for local tool and language installation:
+1. Add any host-specific settings in `~/.zlogin`, which is sourced last for a login shell. I use this for local tool and language installation:
     - homebrew
     - Go, Python (using [uv](https://docs.astral.sh/uv/)), Ruby, Rust, JavaScript
     - [Hugo](https://gohugo.io)
