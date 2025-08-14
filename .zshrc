@@ -4,7 +4,9 @@ function {
 
   $_profile && zmodload zsh/zprof
 
-  source ${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote/antidote.zsh
+  [[ -d .config/antidote ]] || git clone --depth=1 https://github.com/mattmc3/antidote.git .config/antidote
+
+  source .config/antidote/antidote.zsh
 
   antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 

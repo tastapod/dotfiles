@@ -1,0 +1,4 @@
+mattmc3/ez-compinit
+#spaceship-prompt/spaceship-prompt
+sindresorhus/pure
+zsh-users/zsh-completions kind:fpath path:src
