@@ -1,20 +1,25 @@
 # Daniel's dot files
 
-Clone this repository into your home directory, then link the files like this:
+I was using [Oh My Zsh](https://ohmyz.sh) but I found it a bit sluggish. I have migrated to [antidote](https://antidote.sh) with a few plugins in [.zsh_plugins.txt](.zsh_plugins.txt).
 
-Note: _this will replace your dotfiles_, so move them out of the way first!
+## Installation
 
-1. Install [Oh my zsh!](https://ohmyz.sh/#install) 
+_Note: this will replace your dot files, so move them out of the way first!_
 
-2. Run the following:
+Clone this repository into your home directory, then link the files:
 
-    ```
-    cd
-    git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
-    for f in .config/tastapod/dotfiles/*; do ln -f -s "$f" ".${f##*/}"; done
-    ```
+```zsh
+git clone https://github.com/tastapod/dotfiles.git ~/.config/tastapod/dotfiles
+ln -vsf .config/tastapod/dotfiles/{.*(.),Brewfile} .
+```
 
-(If you get an error from `xcrun` you need to run `xcode-select --install` first.)
+This creates symlinks for all the dot files plus some extras (for now just the `Brewfile`).
 
-3. Add any host-specific settings in `.zlogin`, which is sourced after
-`.zshenv` and `.zshrc` for a login shell.
+## Notes
+
+1. If you get an error from `xcrun` you need to run `xcode-select --install` first.
+
+2. Add any host-specific settings in `~/.zlogin`, which is sourced last for a login shell. I use this for local tool and language installation:
+    - homebrew
+    - Go, Python (using [uv](https://docs.astral.sh/uv/)), Ruby, Rust, JavaScript
+    - [Hugo](https://gohugo.io)
