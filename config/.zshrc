@@ -13,7 +13,10 @@ function {
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
   # (re)load local functions
-  # autoload -Uz funcload && funcload
+  autoload -Uz funcload && funcload
+
+  # overrides
+  hx() { command hx --config "$HOME/.helix.toml" "$@" }
 
   # For profiling
   $_profile && zprof

@@ -10,11 +10,11 @@ Clone this repository from your home directory, then link the files:
 
 ```zsh
 cd
-git clone --depth=1 https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles
-ln -vsf .config/tastapod/dotfiles/{.*(.),Brewfile} .
+git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles && cd $_
+ln -sfv $(find $PWD/config -depth 1) ~
 ```
 
-This creates symlinks for all the dot files plus some extras (for now just the `Brewfile`).
+This creates symlinks for everything in the `config` directory.
 
 ## Notes
 

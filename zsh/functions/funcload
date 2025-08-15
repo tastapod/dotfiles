@@ -1,0 +1,13 @@
+# reload all local functions
+function {
+	local fns=( "$ZSH_CUSTOM/functions"/*(.N:t) )
+
+	[[ $fns ]] ||  return 1
+	
+	# Make sure the functions do not already exist
+	unfunction $fns 2>/dev/null
+
+	# Load the functions from the correct place
+	fpath=( "$fn_dir" ) autoload -Uz $fns
+}
+# vi: filetype=bash

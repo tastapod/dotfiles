@@ -1,0 +1,6 @@
+theme = "base16_transparent"
+
+[keys.normal]
+C-z = [":write-all", "suspend"]
+"C-]" = ":bn"
+"C-[" = ":bp"

@@ -6,6 +6,12 @@ belak/zsh-utils path:editor path:history path:utility
 
 ptavares/zsh-direnv
 
+~/.config/tastapod/dotfiles/zsh/functions kind:fpath
+
+# TODO: use `envsubst` to use $ZSH_CUSTOM here
+# https://github.com/mattmc3/antidote/discussions/75#discussioncomment-3685066
+~/.local/share/zsh/functions kind:fpath
+
 # TODO: figure out caching for this
 #snailslug/autoupdate-antidote-zsh
 
