@@ -11,7 +11,7 @@ Clone this repository from your home directory, then link the files:
 ```zsh
 cd
 git clone https://github.com/tastapod/dotfiles.git .config/tastapod/dotfiles && cd $_
-ln -sfv $(find $PWD/config -depth 1) ~
+ln -sfv $(find "$PWD/config" -maxdepth 1 | tail +2) ~
 ```
 
 This creates symlinks for everything in the `config` directory.
@@ -22,7 +22,8 @@ This creates symlinks for everything in the `config` directory.
 
 1. If you get an error from `xcrun` you need to run `xcode-select --install` first.
 
-1. Add any host-specific settings in `~/.zlogin`, which is sourced last for a login shell. I use this for local tool and language installation:
+1. Add any host-specific settings in `~/.zlogin`, which is sourced last for a login shell.
+   I use this for local tool and language configuration:
     - homebrew
     - Go, Python (using [uv](https://docs.astral.sh/uv/)), Ruby, Rust, JavaScript
     - [Hugo](https://gohugo.io)
