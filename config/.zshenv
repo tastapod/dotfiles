@@ -1,4 +1,4 @@
 # environment
 export EDITOR=hx
 export CLICOLOR=
-export ZSH_CUSTOM="$HOME/.local/share/zsh"
+export ZFUNCDIR=${ZDOTDIR:-$HOME/.local/share/zsh}/functions

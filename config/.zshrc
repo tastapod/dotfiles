@@ -10,13 +10,11 @@ function {
 
   antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
+  # Ignore case for completions
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-  # (re)load local functions
-  autoload -Uz funcload && funcload
-
   # overrides
-  hx() { command hx --config "$HOME/.helix.toml" "$@" }
+  hx() { command hx --config ~/.helix.toml "$@" }
 
   # For profiling
   $_profile && zprof

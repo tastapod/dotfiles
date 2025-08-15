@@ -1,4 +1,5 @@
 mattmc3/ez-compinit
+mattmc3/zfunctions
 zsh-users/zsh-completions kind:fpath path:src
 sindresorhus/pure
 
