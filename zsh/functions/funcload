@@ -1,6 +1,8 @@
 # reload all local functions
 function {
-	local fns=( "$ZSH_CUSTOM/functions"/*(.N:t) )
+	local fn_dir="$ZSH_CUSTOM/functions"
+
+	local fns=( "$fn_dir"/*(.N:t) )
 
 	[[ $fns ]] ||  return 1
 	
