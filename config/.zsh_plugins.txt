@@ -1,25 +1,28 @@
+# core plugins
 mattmc3/ez-compinit
-mattmc3/zfunctions
 zsh-users/zsh-completions kind:fpath path:src
+
+# prompt
 sindresorhus/pure
 
+# these are nice
 belak/zsh-utils path:editor
 belak/zsh-utils path:history
 belak/zsh-utils path:prompt
 belak/zsh-utils path:utility
 
+# enable direnv(1)
 ptavares/zsh-direnv
 
-~/.config/tastapod/dotfiles/zsh/functions kind:fpath
-
-# TODO: use `envsubst` to use $ZSH_CUSTOM here
+# TODO: use `envsubst` to use $ZFUNCDIR here
 # https://github.com/mattmc3/antidote/discussions/75#discussioncomment-3685066
-~/.local/share/zsh/functions kind:fpath
+# ~/.local/share/zsh/functions kind:fpath
 
 # TODO: figure out caching for this
 #snailslug/autoupdate-antidote-zsh
 
 # Other Fish-like features
+mattmc3/zfunctions.                         # User functions (funced, funcsave)
 zdharma-continuum/fast-syntax-highlighting  # Syntax highlighting
 zsh-users/zsh-autosuggestions               # Auto-suggestions
 zsh-users/zsh-history-substring-search      # Up/Down to search history
