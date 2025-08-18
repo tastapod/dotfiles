@@ -1,7 +1,8 @@
 # Daniel's dot files
 
 I was using [Oh My Zsh](https://ohmyz.sh) but I found it a bit sluggish.
-I have migrated to [antidote](https://antidote.sh) with a few plugins in [.zsh_plugins.txt](config/.zsh_plugins.txt).
+I have migrated to [antidote](https://antidote.sh) with a few plugins in
+[.zsh_plugins.txt](config/.zsh_plugins.txt).
 
 ## Installation
 

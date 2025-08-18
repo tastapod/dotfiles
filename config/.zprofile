@@ -1,9 +1,8 @@
-function {
-  # Ignore case for completions
-  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-  zstyle ':completion:*' menu select
+# ignore case for completions
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
 
-  # aliases
-  hx() { command hx --config ~/.helix.toml "$@" }
-}
+# aliases
+alias hx='hx -c ~/.helix.toml'
+
 # vim: set ft=zsh
