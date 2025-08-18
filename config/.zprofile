@@ -5,4 +5,4 @@ zstyle ':completion:*' menu select
 # aliases
 alias hx='hx -c ~/.helix.toml'
 
-# vim: set ft=zsh
+# vi: set ft=zsh

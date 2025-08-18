@@ -18,10 +18,7 @@ export ZFUNCDIR="${ZDOTDIR:-$HOME/.local/share/zsh}/functions"
 # remove path duplicates
 typeset -gU path fpath
 
-# homebrew
-(( $+commands[brew] )) && eval $(brew shellenv)
-
-# Set the list of directories that zsh searches for commands.
+# set the list of directories that zsh searches for commands.
 path=(
   "$HOME"/{,s}bin(N)
   "$HOME"/.local/{,s}bin(N)
@@ -29,3 +26,8 @@ path=(
   /usr/local/{,s}bin(N)
   $path
 )
+
+# homebrew
+(( $+commands[brew] )) && eval $(brew shellenv)
+
+# vi: set ft=zsh
