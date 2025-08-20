@@ -16,7 +16,7 @@ export CLICOLOR=
 export ZFUNCDIR="${ZDOTDIR:-$HOME/.local/share/zsh}/functions"
 
 # remove path duplicates
-typeset -gU path fpath
+typeset -gU path fpath cdpath
 
 # set the list of directories that zsh searches for commands.
 path=(
