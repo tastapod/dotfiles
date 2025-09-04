@@ -1,13 +1,14 @@
 # core plugins
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
+snailslug/autoupdate-antidote-zsh
 
 # prompt
 sindresorhus/pure
 
 # these are nice
 belak/zsh-utils path:completion/functions kind:autoload post:compstyle_zshzoo_setup
-#belak/zsh-utils path:editor
+belak/zsh-utils path:editor
 belak/zsh-utils path:history
 belak/zsh-utils path:utility
 
@@ -16,9 +17,6 @@ ptavares/zsh-direnv
 
 # have zsh-bench available
 romkatv/zsh-bench kind:path
-
-# TODO: figure out caching for this
-#snailslug/autoupdate-antidote-zsh
 
 # Fish-like features
 mattmc3/zfunctions                          # User functions (funced, funcsave)

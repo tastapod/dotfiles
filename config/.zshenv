@@ -15,6 +15,9 @@ export CLICOLOR=
 # for zfunctions plugin
 export ZFUNCDIR="${ZDOTDIR:-$HOME/.local/share/zsh}/functions"
 
+# antidote updater plugin
+export ANTIDOTE_PLUGIN_SOURCE_F="$HOME/.zsh_plugins.zsh"
+
 # remove path duplicates
 typeset -gU path fpath cdpath
 
@@ -29,5 +32,8 @@ path=(
 
 # homebrew
 (( $+commands[brew] )) && eval $(brew shellenv)
+
+# Go
+(( $+commands[go] )) && path+=( "$(go env GOPATH)"/bin )
 
 # vi: set ft=zsh
