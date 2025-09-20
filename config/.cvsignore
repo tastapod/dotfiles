@@ -1,10 +1,12 @@
-# macOS
-.DS_Store
-
-# Python
+_vendor/
 __pycache__/
+.DS_Store
+.envrc
+.vscode/
+.wrangler/
+node_modules/
+public/
+target/
+*.bak
 *.pyo
 *.pyc
-
-# direnv
-.envrc
