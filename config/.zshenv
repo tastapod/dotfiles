@@ -9,8 +9,9 @@ if $_PROFILE; then
 fi
 
 # environment
-export VISUAL=hx
 export CLICOLOR=
+export EDITOR=hx
+export VISUAL=hx
 
 # for zfunctions plugin
 export ZFUNCDIR="${ZDOTDIR:-$HOME/.local/share/zsh}/functions"
@@ -31,9 +32,12 @@ path=(
 )
 
 # homebrew
-(( $+commands[brew] )) && eval $(brew shellenv)
+whence brew >/dev/null && eval $(brew shellenv)
 
 # Go
-(( $+commands[go] )) && path+=( "$(go env GOPATH)"/bin )
+whence go >/dev/null && path+=( "$(go env GOPATH)"/bin )
+
+# Hugo
+export HUGO_CACHEDIR="$HOME/.local/cache/hugo"
 
 # vi: set ft=zsh
